@@ -35,34 +35,34 @@ var seedUsers = function () {
             name: "Whatup",
             email: 'testing@fsa.com',
             password: 'password',
-            number: 123456789
+            number: 18144940722
 
         },
         {   
             name:"Yeah Buddy",
             email: 'obama@gmail.com',
             password: 'potus',
-            number: 123456789
+            number: 18144940722
         },
         {
             name: "What",
             email: 'test@fsa.com',
             password: 'password',
-            number: 1234589
+            number: 18144940722
         },
 
         {
             name: "YesSirt",
             email: 'test1@fsa.com',
             password: 'password',
-            number: 8675309
+            number: 18045649949
         },
 
         {
             name: "Sharon Cox",
             email: "test2@fsa.com",
             password: 'pass',
-            number: 767676767
+            number: 18045649949
         }
 
     ];
@@ -72,13 +72,6 @@ var seedUsers = function () {
     });
 
     return Promise.all(creatingUsers)
-    .then(function(users) {
-        
-        var manyUsers = users.map(function(userObj) {
-            return userObj.setBathrooms([getRandomInt(1,3)])
-        })
-        return Promise.all(manyUsers) 
-    }) 
 
 };
 
@@ -121,18 +114,85 @@ var seedBathroom = function() {
 
 }
 
-var setTime = function() {
-    return Shower.findAll({})
-    .then(function(showers) {
-        console.log("work",showers)
-        var smelly = showers.map(function(shower) {
-            return shower.update({
-                showerTime : new Date()
-            })
-        })
-        return Promise.all(smelly)
-    })
+
+var seedShower = function() {
+    var twentyMinutesLater = new Date();
+    var fun = twentyMinutesLater.setMinutes(twentyMinutesLater.getMinutes() + 20);
+    var showers = [
+    {
+        showerTime: new Date(),
+        endTime: fun,
+        userId: 1,
+        bathroomId: 1,
+        fiveText: false,
+        nowText: false,
+        endText: false
+    },
+
+    {
+        showerTime: new Date(),
+        endTime: fun,
+        userId: 1,
+        bathroomId: 1,
+        fiveText: false,
+        nowText: false,
+        endText: false
+
+    },
+    {
+        showerTime: new Date(),
+        endTime: fun,
+        userId : 2,
+        bathroomId: 3,
+        fiveText: false,
+        nowText: false,
+        endText: false
+    },
+    {
+        showerTime: new Date(),
+        endTime: fun,
+        userId : 5,
+        bathroomId: 3,
+        fiveText: false,
+        nowText: false,
+        endText: false
+    }
+    ]
+
+    var creatingShowers = showers.map(function (showerObj) {
+        return Shower.create(showerObj);
+    });
+
+    return Promise.all(creatingShowers)
+        // .then(function(showers) {
+        //     console.log(showers)
+        //     var smelly = showers.map(function(shower) {
+        //         shower.setUser(getRandomInt(1,5))
+        //         .then(function(shower) {
+        //             shower.setBathroom(getRandomInt(1,3))
+        //         })
+        //     })
+        // })
+        // return Promise.all(smelly)
 }
+
+
+
+// var setTime = function() {
+//     return Shower.findAll({})
+//     .then(function(showers) {
+//         console.log("work",showers)
+//         var smelly = showers.map(function(shower) {
+//             var twentyMinutesLater = new Date();
+//             var fun = twentyMinutesLater.setMinutes(twentyMinutesLater.getMinutes() + 20);
+//             return shower.update({
+//                 showerTime : new Date(),
+//                 endTime : fun 
+//             })
+//         })
+//         return Promise.all(smelly)
+//     })
+// }
 
 
 db.sync({force:true})
@@ -143,7 +203,7 @@ db.sync({force:true})
         return seedUsers();
     })
     .then(function() {
-        return setTime();
+        return seedShower();
     })
     .then(function () {
         console.log(chalk.green('Seed successful!'));

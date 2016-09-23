@@ -2,13 +2,38 @@
     <H1 class="showerAdd-title">Add Shower!</H1>
     <form id="showerAdd-form" name="showerAddForm" ng-submit="addShower(shower)">
         <div class="form-group">
-            <label for="bathroom">Choose a Bathroom</label>
-            <input type="text" ng-model="shower.bathroom" class="form-control" id="bathroom" placeholder="Pick your pooper!">
+            <label for="bathroom">Pick Your Pooper!</label>
+            <select ng-options="bathroom as bathroom.name for bathroom in allBathrooms track by bathroom.id" ng-model="shower.bathroom">
+            </select>
         </div>
-        <div class="form-group">
-            <label for="time">Choose a timeslot</label>
-            <input type="text" ng-model="signUp.email" class="form-control" id="email" placeholder="Enter-email">
+        
+
+
+<div class="input-group"
+     moment-picker="shower.showerTime[0]"
+     format="YYYY-MM-DD">
+    <span class="input-group-addon">
+        <i class="octicon octicon-calendar"></i>
+    </span>
+    <input class="form-control"
+           placeholder="Select a date"
+           ng-model="shower.showerTime[0]"
+           ng-model-options="{ updateOn: 'blur' }">
 </div>
 
+<div class="input-group"
+     moment-picker="shower.showerTime[1]"
+     format="HH:mm:ss">
+    <span class="input-group-addon">
+        <i class="octicon octicon-clock"></i>
+    </span>
+    <input class="form-control"
+           placeholder="Select a time"
+           ng-model="shower.showerTime[1]"
+           ng-model-options="{ updateOn: 'blur' }">
+</div>
 
-<div moment-picker="myDate"> {{ myDate }} </div>
+<h3 ng-show="shower.showerTime[1]">End Time will end 20min later</h3>
+
+
+<button type="submit" class="btn btn-default">Submit</button>
