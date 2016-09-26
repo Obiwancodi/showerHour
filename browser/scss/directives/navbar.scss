@@ -1,9 +1,9 @@
-navbar {
+.navbar {
 
   display: block;
-  background: white;
-  border-bottom: 1px solid black;
+  background: #56A1BA;
   box-shadow: 1px 1px 14px -3px black;
+  margin-bottom: 0px;
 
   .container {
     width: 91%;
@@ -41,7 +41,7 @@ navbar {
     float: right;
     border: 1px solid black;
     margin-top: 10px;
-    background: none;
+    background: white;
     outline: none !important;
   }
 

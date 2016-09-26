@@ -1,15 +1,21 @@
+<section id="shower">
+
+<img src="http://www.aloneeagle.com/wp-content/uploads/2014/10/Linear-Drain-Shower-with-Bench.jpg">
+
+
+
 <div class="container">
     <H1 class="showerAdd-title">Add Shower!</H1>
     <form id="showerAdd-form" name="showerAddForm" ng-submit="addShower(shower)">
         <div class="form-group">
             <label for="bathroom">Pick Your Pooper!</label>
-            <select ng-options="bathroom as bathroom.name for bathroom in allBathrooms track by bathroom.id" ng-model="shower.bathroom">
+            <select class="selectpicker" ng-options="bathroom as bathroom.name for bathroom in allBathrooms track by bathroom.id" ng-model="shower.bathroom">
             </select>
         </div>
         
 
 
-<div class="input-group"
+<div class="input-group top"
      moment-picker="shower.showerTime[0]"
      format="YYYY-MM-DD">
     <span class="input-group-addon">
@@ -21,7 +27,7 @@
            ng-model-options="{ updateOn: 'blur' }">
 </div>
 
-<div class="input-group"
+<div class="input-group bottom"
      moment-picker="shower.showerTime[1]"
      format="HH:mm:ss">
     <span class="input-group-addon">
@@ -34,6 +40,5 @@
 </div>
 
 <h3 ng-show="shower.showerTime[1]">End Time will end 20min later</h3>
-
-
 <button type="submit" class="btn btn-default">Submit</button>
+<section>

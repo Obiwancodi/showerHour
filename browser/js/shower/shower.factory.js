@@ -3,9 +3,9 @@ app.factory('addShowerFactory', function($http) {
 	var addShowerFactory = {}
 
 	addShowerFactory.postShower = function(shower) {
-		$http.post('/api/showers', shower)
+		return $http.post('/api/showers', shower)
 		.then(function(shower) {
-			console.log(shower)
+			return shower
 		})
 	}
 
@@ -13,7 +13,7 @@ app.factory('addShowerFactory', function($http) {
 		console.log("fun")
 		return $http.get('/api/showers/personshower')
 		.then(function(showers) {
-			console.log(showers.data)
+			// console.log(showers.data)
 			return showers.data
 		})
 	}
@@ -27,7 +27,7 @@ app.factory('BathroomFactory', function($http) {
 	BathroomFactory.getBathrooms = function() {
 		return $http.get('/api/bathrooms')
 		.then(function(bathroom) {
-			console.log("batroom", bathroom.data)
+			// console.log("batroom", bathroom.data)
 			return bathroom.data
 		})
 	}

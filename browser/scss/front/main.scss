@@ -1,0 +1,125 @@
+#front {
+	
+	img {
+		position: absolute;
+		width:100%;
+		height:700px;
+		z-index: -1
+	}
+
+	h3 {
+		padding-left:255px;
+		padding-top: 200px;
+		font-family: Verdana, Geneva, sans-serif;
+		color: black;
+		text-shadow: 2px 2px grey;
+		font-size: 30px;
+		font-weight: 500;
+
+
+		
+	}
+
+	h1 {
+		margin: 0px;
+		padding-top: 50px;
+		text-align: center;
+		color: white;
+		text-shadow: 2px 2px grey;
+		font-family: Verdana, Geneva, sans-serif
+	}
+
+	.form-group {
+  position: relative;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  color: black;
+}
+.input-group {
+  position: relative;
+}
+.form-control {
+  display: block;
+  height: 36px;
+  width: 100%; 
+  border: none;
+  border-radius: 0 !important;
+
+  font-size: 16px;
+  font-weight: 300;
+  color: black;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+  border-bottom: 1px solid black;
+}
+.input-group .form-control {
+  position: relative;
+  z-index: inherit;
+  float: inherit;
+  width: 100%;
+  margin-bottom: 0;
+}
+.form-control:focus {
+  border-color: black;
+  outline: none;
+  box-shadow: none;
+}
+
+label {
+  position: absolute;
+  top: -18px;
+  color: black;
+  font-size: 12px;
+  font-weight: 300;
+  
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.form-horizontal .control-label {
+  position: relative;
+  top: 0;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    font-size: 16px;
+  }
+}
+  
+
+.float-label {
+  left: 0;
+  top: 7px;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* active state */
+.form-control:focus ~ .float-label, .form-control:valid ~ .float-label {
+  top: -18px;
+  font-size: 12px;
+}
+
+.form-control:focus {
+  ~ label {
+    color: black;
+  }
+  
+  ~ .form-bar:before, ~ .form-bar:after {
+    background: black;
+  }
+}
+
+
+
+
+.form-control:valid ~ .control-label {
+
+}
+
+	
+}
